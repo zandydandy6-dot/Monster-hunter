@@ -1,7 +1,7 @@
 package com.hagoyama;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -98,4 +98,4 @@ public class James extends Monster implements GeoEntity {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
-}
+                             }
