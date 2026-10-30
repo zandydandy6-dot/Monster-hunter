@@ -1,0 +1,7 @@
+{
+  "feature": "hagoyama:cave_shrine",
+  "placement": [
+    { "type": "minecraft:in_square" },
+    { "type": "minecraft:biome" }
+  ]
+}

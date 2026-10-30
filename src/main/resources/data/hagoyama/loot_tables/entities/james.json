@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        { "type": "minecraft:item", "name": "hagoyama:james_sweater", "weight": 1 },
+        { "type": "minecraft:item", "name": "hagoyama:james_trousers", "weight": 1 },
+        { "type": "minecraft:item", "name": "hagoyama:james_boots", "weight": 1 }
+      ]
+    }
+  ]
+}

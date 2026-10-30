@@ -1,0 +1,127 @@
+{
+ "name": "hagoyama_slash_2",
+ "author": "Monster Hunter",
+ "description": "Hagoyama sword combo",
+ "emote": {
+  "beginTick": 0,
+  "endTick": 11,
+  "stopTick": 14,
+  "isLoop": false,
+  "returnTick": 0,
+  "nsfw": false,
+  "degrees": false,
+  "moves": [
+   {
+    "tick": 0,
+    "rightArm": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": -0.5,
+     "yaw": 0.0,
+     "roll": 0.1
+    },
+    "torso": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": 0,
+     "yaw": 0,
+     "roll": 0
+    }
+   },
+   {
+    "tick": 2,
+    "rightArm": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": -1.35,
+     "yaw": 0.9,
+     "roll": 0.9
+    },
+    "leftArm": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": 0.2,
+     "yaw": 0,
+     "roll": -0.4
+    },
+    "torso": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": 0,
+     "yaw": 0.5,
+     "roll": 0
+    }
+   },
+   {
+    "tick": 5,
+    "rightArm": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": -1.45,
+     "yaw": -1.0,
+     "roll": -0.4
+    },
+    "leftArm": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": -0.6,
+     "yaw": 0,
+     "roll": -0.3
+    },
+    "torso": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": 0,
+     "yaw": -0.55,
+     "roll": 0
+    }
+   },
+   {
+    "tick": 8,
+    "rightArm": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": -0.9,
+     "yaw": -0.4,
+     "roll": 0.0
+    },
+    "torso": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": 0,
+     "yaw": -0.3,
+     "roll": 0
+    }
+   },
+   {
+    "tick": 11,
+    "rightArm": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": -0.3,
+     "yaw": 0.0,
+     "roll": 0.1
+    },
+    "torso": {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 0.0,
+     "pitch": 0,
+     "yaw": 0,
+     "roll": 0
+    }
+   }
+  ]
+ }
+}
