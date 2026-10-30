@@ -1,10 +1,35 @@
 name: build
-on: workflow_dispatch
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Unzip src and tools if still zipped
+        run: |
+          for n in src tools; do
+            if [ -f $n.zip ]; then
+              rm -rf _tmp && mkdir _tmp
+              unzip -q -o $n.zip -d _tmp
+              mkdir -p $n
+              if [ -d _tmp/$n ]; then cp -r _tmp/$n/. $n/; else cp -r _tmp/. $n/; fi
+              rm -f $n.zip
+            fi
+          done
+          rm -rf _tmp
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions"
+            git config user.email "actions@github.com"
+            git add -A
+            git commit -m "Unzip src and tools"
+            git push
+          fi
 
       - uses: actions/setup-java@v4
         with:
@@ -13,40 +38,4 @@ jobs:
 
       - name: Download Forge MDK
         run: |
-          curl -fL -o mdk.zip https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-mdk.zip
-          mkdir _mdk
-          unzip -q mdk.zip -d _mdk
-
-      - name: Merge mod into MDK
-        run: |
-          rm -rf _mdk/src/main/java/com/example
-          rm -f _mdk/src/main/resources/META-INF/mods.toml
-          cp -r src/. _mdk/src/
-          cd _mdk
-          sed -i 's/^mod_id=.*/mod_id=hagoyama/' gradle.properties
-          sed -i 's/^mod_name=.*/mod_name=Monster Hunter/' gradle.properties
-          sed -i 's/^mod_group_id=.*/mod_group_id=com.hagoyama/' gradle.properties
-          cat >> build.gradle <<'EOF'
-
-          repositories {
-              maven { url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-              maven { url = 'https://maven.kosmx.dev/' }
-              maven { url = 'https://maven.theillusivec4.top/' }
-          }
-          dependencies {
-              implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.4.9')
-              implementation fg.deobf('dev.kosmx.player-anim:player-animation-lib-forge:1.0.2-rc1+1.20')
-              runtimeOnly fg.deobf('top.theillusivec4.curios:curios-forge:5.9.1+1.20.1')
-          }
-          EOF
-
-      - name: Build
-        working-directory: _mdk
-        run: |
-          chmod +x gradlew
-          ./gradlew build --no-daemon
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: monster-hunter-jar
-          path: _mdk/build/libs/*.jar
+          curl -fL -o mdk.zip https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-md
